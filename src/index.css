@@ -3,3 +3,19 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+h2 {
+  margin-left: 50px;
+}
+
+form {
+  margin-left: 50px;
+}
+
+label, input, textarea, select {
+    display: block;
+}
+
+input, textarea, select {
+    margin-bottom: 12px;
+}
