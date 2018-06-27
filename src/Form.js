@@ -1,5 +1,6 @@
 import React from 'react';
-import {reduxForm, focus} from 'redux-form';
+import {reduxForm, Field, focus} from 'redux-form';
+import Input from './input';
 
 
 export class TrackingForm extends React.Component {
@@ -10,25 +11,36 @@ export class TrackingForm extends React.Component {
       <div>
         <h2>Report a problem with your delivery</h2>
         <form>
-          <label htmlFor='tracking-number-input'>Tracking Number</label>
-          <input 
+          <Field 
+            component={Input}
             type='text' 
-            label='tracking-number' 
+            label='Tracking Number' 
             name='tracking-number-input'
           />
           <label htmlFor='issue-selector'>What is your issue?</label>
-          <select name="issue-selector" id="issue">
-          <option value="not-delivered">My delivery hasn't arrived</option>
-          <option value="wrong-item">The wrong item was delivered</option>
-          <option value="missing-part">Part of my order was missing</option>
-          <option value="damaged">Some of my order arrived damaged</option>
-          <option value="other">Other (give details below)</option>
-          </select>
+          <Field
+            component='select' 
+            name="issue-selector" 
+            id="issue"
+            label="What is your issue?" >
+              <option value="not-delivered">My delivery hasn't arrived</option>
+              <option value="wrong-item">The wrong item was delivered</option>
+              <option value="missing-part">Part of my order was missing</option>
+              <option value="damaged">Some of my order arrived damaged</option>
+              <option value="other">Other (give details below)</option>
+          </Field>
           <div className="form-input">
-            <label htmlFor="details">Give more details (optional)</label>
-            <textarea name="details" id="details"></textarea>
+            <Field 
+            component={Input}
+            element="text-area" 
+            name="details" 
+            id="details"
+            label="Give more details"
+            />
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit"
+            disabled={this.props.pristine || this.props.submitting}>Submit
+          </button>
         </form>
       </div>
     )
