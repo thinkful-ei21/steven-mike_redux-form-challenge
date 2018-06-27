@@ -5,20 +5,18 @@ import {reduxForm, focus} from 'redux-form';
 export class TrackingForm extends React.Component {
  
   
-
-
   render() {
     return (
       <div>
         <h2>Report a problem with your delivery</h2>
         <form>
-          <label for='tracking-number-input'>Tracking Number</label>
+          <label htmlFor='tracking-number-input'>Tracking Number</label>
           <input 
             type='text' 
             label='tracking-number' 
             name='tracking-number-input'
           />
-          <label for='issue-selector'>What is your issue?</label>
+          <label htmlFor='issue-selector'>What is your issue?</label>
           <select name="issue-selector" id="issue">
           <option value="not-delivered">My delivery hasn't arrived</option>
           <option value="wrong-item">The wrong item was delivered</option>
@@ -26,8 +24,8 @@ export class TrackingForm extends React.Component {
           <option value="damaged">Some of my order arrived damaged</option>
           <option value="other">Other (give details below)</option>
           </select>
-          <div class="form-input">
-            <label for="details">Give more details (optional)</label>
+          <div className="form-input">
+            <label htmlFor="details">Give more details (optional)</label>
             <textarea name="details" id="details"></textarea>
           </div>
           <button type="submit">Submit</button>
